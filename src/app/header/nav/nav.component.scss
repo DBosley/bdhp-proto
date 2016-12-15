@@ -1,0 +1,207 @@
+@import '~app/shared/colors.scss';
+.navbar-inverse .container {
+  position: relative;
+}
+
+.search {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  z-index: 1;
+}
+
+.search i {
+  color: $blue;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+}
+
+.field-toggle {
+  position: relative;
+  top: 30px;
+  right: 15px;
+  height: 50px;
+}
+
+.search-form {
+  padding-left: 10px;
+  height: 40px;
+  font-size: 18px;
+  color: lighten($charcoal, 20%);
+  font-weight: 300;
+  outline: none;
+  border: 1px solid $sky;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.navbar {
+  background: $white;
+  border: 0;
+  margin-bottom: 0;
+}
+
+.navbar-toggle {
+  margin-top: 20px;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin-left: 0;
+}
+
+.navbar-brand h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-nav.navbar-right>li:last-child {
+  margin-right: 20px;
+}
+
+.navbar-nav.navbar-right>li a {
+  color: $charcoal;
+  font-size: 16px;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.navbar-inverse .navbar-nav li.active>a,
+.navbar-inverse .navbar-nav li.active>a:focus,
+.navbar-nav.navbar-right li>a:hover,
+.navbar-inverse .navbar-nav>.open>a {
+  background-color: inherit;
+  border: 0;
+  color: $sky;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+  color: $sky;
+}
+
+
+/*Dropdown menu*/
+
+ul.sub-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-nav li ul.sub-menu li a {
+  color: lighten($charcoal, 30%);
+  padding: 5px 0;
+  font-size: 17px;
+  display: block;
+  text-transform: capitalize;
+}
+
+.navbar-nav li ul.sub-menu li .active {
+  background: darken($white, 10%);
+  color: $sky;
+  position: relative;
+}
+
+.navbar-nav li ul.sub-menu li .active i {
+  position: absolute;
+  font-size: 56px;
+  top: -13px;
+  color: $blue;
+}
+
+.navbar-nav li ul.sub-menu li .active .fa-angle-right {
+  left: -3px;
+}
+
+.navbar-nav li ul.sub-menu li .active .fa-angle-left {
+  right: -3px;
+}
+
+.navbar-nav li ul.sub-menu li a:hover,
+.navbar-nav li ul.sub-menu li a:focus {
+  background: darken($white, 10%);
+  color: $sky;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav.navbar-nav>li:hover>ul.sub-menu {
+    display: block;
+    -webkit-animation: fadeInUp 400ms;
+    animation: fadeInUp 400ms;
+  }
+  ul.sub-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: $white;
+    padding: 10px 0;
+    width: 240px;
+    box-shadow: none;
+    display: none;
+    z-index: 999;
+    border: 1px solid $blue;
+  }
+  .navbar-nav li ul.sub-menu li a {
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .navbar-nav.navbar-right li {
+    padding: 0;
+  }
+  .navbar-nav.navbar-right>li a {
+    padding: 20px 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-inverse .navbar-toggle,
+  .navbar-inverse .navbar-toggle:focus {
+    border-color: $blue;
+    margin-top: 15px;
+    margin-right: 5px;
+    outline: none;
+  }
+  .navbar-header .navbar-toggle .icon-bar {
+    background-color: $blue;
+  }
+  .navbar-inverse .navbar-toggle:hover {
+    background: $blue;
+  }
+  .navbar-inverse .navbar-toggle:hover .icon-bar {
+    background: $white;
+  }
+  .navbar-inverse .navbar-collapse,
+  .navbar-inverse .navbar-form {
+    border-top: 0;
+  }
+  .navbar.navbar-inverse {
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .search {
+    top: -40px;
+  }
+  .navbar-nav.navbar-right li>a>i {
+    display: inline-block;
+    float: right;
+    padding: 8px 10px 8px 30px
+  }
+  .navbar-nav.navbar-right li>a {
+    padding: 10px 0;
+  }
+  .navbar-nav li ul.sub-menu li a {
+    padding: 5px 10px;
+  }
+  .navbar-inverse .navbar-nav li.active>a,
+  .navbar-inverse .navbar-nav li.active>a:focus,
+  .navbar-nav.navbar-right li>a:hover {
+    border: none;
+  }
+}

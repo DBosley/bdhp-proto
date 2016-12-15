@@ -1,0 +1,15 @@
+@import '~app/shared/common.scss';
+
+.single-features {
+  overflow: hidden;
+  padding-top: 65px;
+  padding-bottom: 40px;
+}
+
+.single-features:last-child {
+  padding-bottom: 95px;
+}
+
+.single-features h2 {
+  margin-bottom: 15px;
+}

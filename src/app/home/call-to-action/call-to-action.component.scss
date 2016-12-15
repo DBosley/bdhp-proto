@@ -1,0 +1,40 @@
+@import '~app/shared/common.scss';
+
+
+section {
+  background-image: url(../assets/img/home/tour-bg.png);
+  background-color: darken($white, 10%);
+  background-repeat: repeat-x;
+  height: 155px;
+  background-position: center;
+  display: table;
+  position: static;
+  width: 100%;
+}
+
+.vertical-center {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  position: statice;
+}
+
+.action h1 {
+  margin-top: 0;
+}
+
+.action p {
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+
+.action .btn-common {
+  margin-top: 55px;
+  float: left;
+}
+
+.title {
+  color: $charcoal;
+  font-weight: 300;
+}

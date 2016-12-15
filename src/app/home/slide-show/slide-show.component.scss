@@ -1,0 +1,208 @@
+@import '~app/shared/colors.scss';
+
+section{
+  background: url(../assets/img/home/slider-bg.png) 0 100% repeat-x;
+  position: relative;
+}
+
+.main-slider {
+  position: relative;
+  height: 450px;
+}
+
+.slide-text {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 450px;
+}
+
+.animate-in .slide-text {
+  -webkit-animation: fadeInLeftBig 700ms cubic-bezier(0.190, 1.000, 0.220, 1.000) 200ms both;
+  animation: fadeInLeftBig 700ms cubic-bezier(0.190, 1.000, 0.220, 1.000) 200ms both;
+}
+
+.slider-house {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.animate-in .slider-house {
+  -webkit-animation: fadeInDown 700ms ease-in-out 200ms both;
+  animation: fadeInDown 700ms ease-in-out 200ms both;
+}
+
+.slider-circle1 {
+  position: absolute;
+  right: 430px;
+  bottom: 210px;
+}
+
+.animate-in .slider-circle1 {
+  -webkit-animation: bounceIn 500ms ease-in-out 900ms both;
+  animation: bounceIn 500ms ease-in-out 900ms both;
+}
+
+.slider-circle2 {
+  position: absolute;
+  right: 420px;
+  bottom: 245px;
+}
+
+.animate-in .slider-circle2 {
+  -webkit-animation: bounceIn 500ms ease-in-out 1100ms both;
+  animation: bounceIn 500ms ease-in-out 1100ms both;
+}
+
+.slider-cloud1 {
+  position: absolute;
+  right: 290px;
+  bottom: 250px;
+}
+
+.animate-in .slider-cloud1 {
+  -webkit-animation: bounceIn 500ms ease-in-out 1300ms both;
+  animation: bounceIn 500ms ease-in-out 1300ms both;
+}
+
+.slider-cloud2 {
+  position: absolute;
+  right: 375px;
+  bottom: 330px;
+}
+
+.animate-in .slider-cloud2 {
+  -webkit-animation: bounceIn 500ms ease-in-out 1500ms both;
+  animation: bounceIn 500ms ease-in-out 1500ms both;
+}
+
+.slider-cloud3 {
+  position: absolute;
+  right: 75px;
+  bottom: 300px;
+}
+
+.animate-in .slider-cloud3 {
+  -webkit-animation: bounceIn 500ms ease-in-out 1700ms both;
+  animation: bounceIn 500ms ease-in-out 1700ms both;
+}
+
+.slider-sun {
+  position: absolute;
+  right: 190px;
+  bottom: 300px;
+}
+
+.animate-in .slider-sun {
+  -webkit-animation: bounceIn 800ms ease-in-out 1900ms both;
+  animation: bounceIn 800ms ease-in-out 1900ms both;
+}
+
+.slider-cycle {
+  position: absolute;
+  right: 500px;
+  bottom: 0;
+}
+
+.animate-in .slider-cycle {
+  -webkit-animation: slideInLeft 4000ms cubic-bezier(0.190, 1.000, 0.220, 1.000) 200ms both;
+  animation: slideInLeft 4000ms cubic-bezier(0.190, 1.000, 0.220, 1.000) 200ms both;
+}
+
+h1 {
+  margin-top: 70px;
+  margin-bottom: 25px;
+}
+
+.btn-common {
+  margin-top: 20px;
+}
+
+.preloader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: darken($white, 5%);
+  text-align: center;
+}
+
+.preloader>i {
+  font-size: 48px;
+  height: 48px;
+  line-height: 48px;
+  color: lighten($green, 20%);
+  position: absolute;
+  left: 50%;
+  margin-left: -24px;
+  top: 50%;
+  margin-top: -24px;
+}
+
+@media only screen and (max-width : 992px) {
+
+  section {
+    margin-top: 30px;
+  }
+
+  .main-slider {
+    height: 250px;
+  }
+
+  .slide-text {
+    top: 0;
+    width: 50%;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  .slider-house {
+    width: 350px;
+  }
+
+  .slider-circle1 {
+    right: 295px;
+    bottom: 140px;
+    width: 20px;
+  }
+
+  .slider-circle2 {
+    right: 290px;
+    bottom: 160px;
+    width: 11px;
+  }
+
+  .slider-cloud1 {
+    right: 190px;
+    bottom: 160px;
+    width: 60px;
+  }
+
+  .slider-cloud2 {
+    right: 260px;
+    bottom: 190px;
+    width: 70px;
+  }
+
+  .slider-cloud3 {
+    right: 75px;
+    bottom: 180px;
+    width: 70px;
+  }
+
+  .slider-sun {
+    right: 170px;
+    bottom: 210px;
+    width: 60px
+  }
+
+  .slider-cycle {
+    right: 350px;
+    bottom: 0;
+    width: 140px;
+  }
+}

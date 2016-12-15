@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<div class="single-features">
+  <div *ngIf="!data.flip" class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+    <img src="{{data.imageUrl}}" class="img-responsive" alt="">
+  </div>
+  <div [class]="textClass" data-wow-duration="500ms" data-wow-delay="300ms">
+    <h2>{{data.title}}</h2>
+    <p>{{data.text}}</p>
+  </div>
+  <div *ngIf="data.flip" class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+    <img src="{{data.imageUrl}}" class="img-responsive" alt="">
+  </div>
+</div>

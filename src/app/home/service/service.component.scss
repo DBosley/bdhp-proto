@@ -1,0 +1,23 @@
+@import '~app/shared/common.scss';
+
+.single-service {
+  overflow: hidden;
+  display: block;
+}
+
+.single-service img {
+  margin-bottom: 35px;
+}
+
+.single-service .fold {
+  margin-bottom: 35px;
+}
+
+.single-service h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.single-service p {
+  padding: 0 48px;
+}

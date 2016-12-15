@@ -1,18 +1,39 @@
-import { Component } from '@angular/core';
+/*
+ * Angular 2 decorators and services
+ */
+import { Component, ViewEncapsulation } from '@angular/core';
+import { AppState } from './app.service';
 
-import { ApiService } from './shared';
+import { WowJsInit } from './shared/wowjs.init';
 
-import '../style/app.scss';
+import { vendorStyles } from './shared/vendor.styles';
 
+/*
+ * App Component
+ * Top Level Component
+ */
 @Component({
-  selector: 'my-app', // <my-app></my-app>
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app',
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: [
+    './shared/common.scss',
+    './app.component.scss'
+  ].concat(vendorStyles),
+  template: `
+    <app-header></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  `,
+  providers: [WowJsInit]
 })
 export class AppComponent {
-  url = 'https://github.com/preboot/angular2-webpack';
-
-  constructor(private api: ApiService) {
-    // Do something with api
+  constructor(public appState: AppState, private wowJs: WowJsInit) {
   }
+
+  ngOnInit() {
+    this.wowJs.init();
+  }
+
 }
