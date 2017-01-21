@@ -21,17 +21,15 @@ import '@angularclass/hmr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import 'jquery';
-import 'masonry-layout';
-import 'isotope-layout';
-import 'wowjs';
 
+// this.router.events.subscribe((val) => {
+//   if (val instanceof NavigationEnd) {
+//     wow.sync();
+//   }
+// });
 
 if ('production' === ENV) {
   // Production
-
-
 } else {
   // Development
-
 }

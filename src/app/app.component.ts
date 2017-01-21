@@ -3,10 +3,9 @@
  */
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AppState } from './app.service';
+import 'wowjs';
 
-import { WowJsInit } from './shared/wowjs.init';
 
-import { vendorStyles } from './shared/vendor.styles';
 
 /*
  * App Component
@@ -17,23 +16,23 @@ import { vendorStyles } from './shared/vendor.styles';
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './shared/common.scss',
-    './app.component.scss'
-  ].concat(vendorStyles),
+    './app.component.scss',
+  ],
   template: `
     <app-header></app-header>
     <main>
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>
-  `,
-  providers: [WowJsInit]
+  `
 })
 export class AppComponent {
-  constructor(public appState: AppState, private wowJs: WowJsInit) {
+  constructor(public appState: AppState) {
+    let wow = new (<any>window).WOW();
+    wow.init();
   }
 
   ngOnInit() {
-    this.wowJs.init();
   }
 
 }

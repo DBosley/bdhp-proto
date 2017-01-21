@@ -20,6 +20,7 @@ import { FooterModule } from './footer/footer.module';
 import { HomeModule } from './home/home.module';
 //Components
 import { NoContentComponent } from './no-content/no-content.component';
+//Directives
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -37,10 +38,10 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    NoContentComponent,
+    NoContentComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -57,7 +58,7 @@ type StoreType = {
   ]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef, public appState: AppState) {}
+  constructor(public appRef: ApplicationRef, public appState: AppState) { }
 
   hmrOnInit(store: StoreType) {
     if (!store || !store.state) return;
@@ -83,7 +84,7 @@ export class AppModule {
     // recreate root elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // save input values
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     // remove styles
     removeNgStyles();
   }

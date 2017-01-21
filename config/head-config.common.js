@@ -15,13 +15,6 @@
  */
 module.exports = {
   link: [
-    /** TODO: Remove this section
-     * <link> tags for triangle template css */
-    { rel: 'stylesheet', href: '/assets/css/bootstrap.min.css' },
-    { rel: 'stylesheet', href: '/assets/css/font-awesome.min.css' },
-    { rel: 'stylesheet', href: '/assets/css/lightbox.css' },
-    { rel: 'stylesheet', href: '/assets/css/responsive.css' },
-
     /** <link> tags for 'apple-touch-icon' (AKA Web Clips). **/
     { rel: 'apple-touch-icon', sizes: '57x57', href: '/assets/icon/apple-icon-57x57.png' },
     { rel: 'apple-touch-icon', sizes: '60x60', href: '/assets/icon/apple-icon-60x60.png' },

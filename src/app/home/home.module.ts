@@ -9,7 +9,7 @@ import { FeatureComponent } from './feature-list/feature/feature.component';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
     ],
     exports: [
         HomeComponent
@@ -20,7 +20,7 @@ import { FeatureComponent } from './feature-list/feature/feature.component';
         ServiceComponent,
         CallToActionComponent,
         FeatureListComponent,
-        FeatureComponent
+        FeatureComponent,
     ]
 })
 export class HomeModule { }

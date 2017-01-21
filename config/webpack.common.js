@@ -14,16 +14,19 @@ const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplaceme
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const ngcWebpack = require('ngc-webpack');
 
 /*
  * Webpack Constants
  */
 const HMR = helpers.hasProcessFlag('hot');
+const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
   title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
   baseUrl: '/',
@@ -56,9 +59,9 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'vendor': './src/vendor.ts',
-      'main': './src/main.browser.ts'
+      'polyfills': './src/polyfills.ts',
+      'main':      AOT ? './src/main.aot.ts' :
+                  './src/main.ts'
 
     },
 
@@ -80,8 +83,8 @@ module.exports = function (options) {
       modules: [helpers.root('src'), helpers.root('node_modules')],
       alias: {
         'masonry': 'masonry-layout',
-        'isotope': 'isotope-layout'
-      }
+        'isotope': 'isotope-layout',
+      },
     },
 
     /*
@@ -104,9 +107,16 @@ module.exports = function (options) {
           test: /\.ts$/,
           use: [
             '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
-            'awesome-typescript-loader',
+            'awesome-typescript-loader?{configFileName: "tsconfig.webpack.json"}',
             'angular2-template-loader',
-            'angular-router-loader'
+            {
+              loader: 'ng-router-loader',
+              options: {
+                loader: 'async-system',
+                genDir: 'compiled',
+                aot: AOT
+              }
+            }
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
         },
@@ -122,23 +132,24 @@ module.exports = function (options) {
         },
 
         /*
-         * to string and css loader support for *.css files
+         * to string and css loader support for *.css files (from Angular components)
          * Returns file content as string
          *
          */
         {
           test: /\.css$/,
-          use: ['to-string-loader', 'css-loader']
+          use: ['to-string-loader', 'css-loader'],
+          exclude: [helpers.root('src', 'styles')]
         },
 
         /*
          * raw and sass loader support for *.scss files
          * Returns file content as string converted from sass
-         *
          */
         {
           test: /\.scss$/,
-          loaders: ['raw-loader', 'sass-loader']
+          loaders: ['raw-loader', 'sass-loader'],
+          exclude: [helpers.root('src', 'styles')]
         },
 
         /* Raw loader support for *.html
@@ -155,9 +166,16 @@ module.exports = function (options) {
         /* File loader for supporting images, for example, in CSS files.
          */
         {
-          test: /\.(jpg|png|gif)$/,
+          test: /\.(jpg|png|gif|eot|woff|woff2|ttf|svg)$/,
           use: 'file-loader'
         },
+        /**
+         * wowjs shim
+         */
+        {
+          test: /wow(\.min)?\.js$/,
+          loader: 'imports-loader?this=>window'
+        }
 
       ],
 
@@ -176,6 +194,13 @@ module.exports = function (options) {
       }),
 
       /*
+       * Plugin: ForkCheckerPlugin
+       * Description: Do type checking in a separate process, so webpack don't need to wait.
+       *
+       * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
+       */
+      new CheckerPlugin(),
+      /*
        * Plugin: CommonsChunkPlugin
        * Description: Shares common code between the pages.
        * It identifies common modules and put them into a commons chunk.
@@ -183,6 +208,17 @@ module.exports = function (options) {
        * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
        * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
        */
+      new CommonsChunkPlugin({
+        name: 'polyfills',
+        chunks: ['polyfills']
+      }),
+      // This enables tree shaking of the vendor modules
+      new CommonsChunkPlugin({
+        name: 'vendor',
+        chunks: ['main'],
+        minChunks: module => /node_modules\//.test(module.resource)
+      }),
+      // Specify the correct order the scripts will be injected in
       new CommonsChunkPlugin({
         name: ['polyfills', 'vendor'].reverse()
       }),
@@ -211,12 +247,10 @@ module.exports = function (options) {
        *
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
-      new CopyWebpackPlugin([{
-        from: 'src/assets',
-        to: 'assets'
-      }, {
-        from: 'src/meta'
-      }]),
+      new CopyWebpackPlugin([
+        { from: 'src/assets', to: 'assets' },
+        { from: 'src/meta'}
+      ]),
 
 
       /*
@@ -275,7 +309,7 @@ module.exports = function (options) {
       new ProvidePlugin({
         jQuery: 'jquery',
         $: 'jquery',
-        jquery: 'jquery'
+        jquery: 'jquery',
       }),
 
       /**
@@ -306,6 +340,13 @@ module.exports = function (options) {
         /facade(\\|\/)math/,
         helpers.root('node_modules/@angular/core/src/facade/math.js')
       ),
+
+      new ngcWebpack.NgcWebpackPlugin({
+        disabled: !AOT,
+        tsConfig: helpers.root('tsconfig.webpack.json'),
+        resourceOverride: helpers.root('config/resource-override.js')
+      })
+
     ],
 
     /*
