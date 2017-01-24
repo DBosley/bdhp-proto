@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<section id="spotlight">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="spotlight text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+          <p><img [attr.src]="spotlight.largeImageUrl" class="img-responsive" alt=""></p>
+          <h1 class="title">{{spotlight.title}}</h1>
+          <span #viewcontainer></span>
+        </div>
+        <div class="spotlight-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+          <div class="col-xs-3 col-sm-2" *ngFor="let imageUrl of spotlight.imageUrls">
+            <a href="#"><img [attr.src]="imageUrl" class="img-responsive" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -6,6 +6,7 @@ import { ServiceComponent } from './service/service.component';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
 import { FeatureListComponent } from './feature-list/feature-list.component';
 import { FeatureComponent } from './feature-list/feature/feature.component';
+import { SpotlightComponent } from './spotlight/spotlight.component';
 
 @NgModule({
     imports: [
@@ -21,6 +22,7 @@ import { FeatureComponent } from './feature-list/feature/feature.component';
         CallToActionComponent,
         FeatureListComponent,
         FeatureComponent,
+        SpotlightComponent,
     ]
 })
 export class HomeModule { }
