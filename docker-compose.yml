@@ -1,0 +1,31 @@
+
+version: '2'
+services:
+  directus:
+    image: getdirectus/directus:6.3
+    container_name: directus
+    links:
+      - mysql:mysql
+    ports:
+     - "8080:8080"
+    depends_on:
+     - mysql
+  # Replace ~/Development/directus with your local directus git checkout
+#   volumes:
+#      - ~/directus:/var/www/directus
+    environment:
+     - MYSQL_USER=directus
+     - MYSQL_PASSWORD=directus
+     - MYSQL_ENV_MYSQL_DATABASE=directus
+     - MYSQL_PORT_3306_TCP_ADDR=mysql
+     - MYSQL_PORT_3306_TCP_PORT=3306
+     - MYSQL_ENV_MYSQL_PASSWORD=directus
+     - MYSQL_ENV_MYSQL_USER=directus
+  mysql:
+    image: mysql:5.5
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=directus
+      - MYSQL_USER=directus
+      - MYSQL_PASSWORD=directus
