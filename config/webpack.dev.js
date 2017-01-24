@@ -203,7 +203,9 @@ module.exports = function (options) {
       new LoaderOptionsPlugin({
         debug: true,
         options: {
-
+          sassLoader: {
+            includePaths: [helpers.root('src', 'sass-partials')]
+          },
         }
       }),
 

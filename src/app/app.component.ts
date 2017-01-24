@@ -15,7 +15,6 @@ import 'wowjs';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './shared/common.scss',
     './app.component.scss',
   ],
   template: `

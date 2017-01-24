@@ -1,4 +1,4 @@
-@import '~app/shared/colors.scss';
+@import 'variables';
 section {
   margin-bottom: 0;
   padding: 30px 0 60px 0;
@@ -24,7 +24,7 @@ section {
 
 .social-icons ul li a:hover,
 .social-icons ul li a:focus {
-  color: $sky;
+  color: $color_lochmara_approx;
   background: none;
 }
 

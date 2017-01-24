@@ -1,4 +1,4 @@
-@import '~app/shared/colors.scss';
+@import 'variables';
 
 section{
   background: url(../assets/img/home/slider-bg.png) 0 100% repeat-x;
@@ -133,7 +133,7 @@ h1 {
   font-size: 48px;
   height: 48px;
   line-height: 48px;
-  color: lighten($green, 20%);
+  color: lighten($color_dingley_approx, 20%);
   position: absolute;
   left: 50%;
   margin-left: -24px;

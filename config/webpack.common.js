@@ -60,8 +60,7 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.ts',
-      'main':      AOT ? './src/main.aot.ts' :
-                  './src/main.ts'
+      'main': AOT ? './src/main.aot.ts' : './src/main.ts'
 
     },
 
@@ -247,9 +246,13 @@ module.exports = function (options) {
        *
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
-      new CopyWebpackPlugin([
-        { from: 'src/assets', to: 'assets' },
-        { from: 'src/meta'}
+      new CopyWebpackPlugin([{
+          from: 'src/assets',
+          to: 'assets'
+        },
+        {
+          from: 'src/meta'
+        }
       ]),
 
 
@@ -317,7 +320,7 @@ module.exports = function (options) {
        *
        * See: https://gist.github.com/sokra/27b24881210b56bbaff7
        */
-      new LoaderOptionsPlugin({}),
+      new LoaderOptionsPlugin(),
 
       // Fix Angular 2
       new NormalModuleReplacementPlugin(

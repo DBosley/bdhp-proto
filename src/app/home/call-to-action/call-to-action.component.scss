@@ -1,4 +1,4 @@
-@import '~app/shared/common.scss';
+@import 'variables';
 
 
 section {
@@ -35,6 +35,6 @@ section {
 }
 
 .title {
-  color: $charcoal;
+  color: $color_log_cabin_approx;
   font-weight: 300;
 }

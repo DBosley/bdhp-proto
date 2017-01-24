@@ -1,4 +1,4 @@
-@import '~app/shared/colors.scss';
+@import 'variables';
 .navbar-inverse .container {
   position: relative;
 }
@@ -11,7 +11,7 @@
 }
 
 .search i {
-  color: $blue;
+  color: $color_endeavour_80_approx;
   cursor: pointer;
   position: absolute;
   right: 10px;
@@ -29,10 +29,10 @@
   padding-left: 10px;
   height: 40px;
   font-size: 18px;
-  color: lighten($charcoal, 20%);
+  color: lighten($color_log_cabin_approx, 20%);
   font-weight: 300;
   outline: none;
-  border: 1px solid $sky;
+  border: 1px solid $color_lochmara_approx;
   margin-top: 20px;
   border-radius: 4px;
 }
@@ -62,7 +62,7 @@
 }
 
 .navbar-nav.navbar-right>li a {
-  color: $charcoal;
+  color: $color_log_cabin_approx;
   font-size: 16px;
   padding: 20px;
   text-transform: uppercase;
@@ -75,11 +75,11 @@
 .navbar-inverse .navbar-nav>.open>a {
   background-color: inherit;
   border: 0;
-  color: $sky;
+  color: $color_lochmara_approx;
 }
 
 .navbar-inverse .navbar-nav li a:hover {
-  color: $sky;
+  color: $color_lochmara_approx;
 }
 
 
@@ -93,7 +93,7 @@ ul.sub-menu {
 }
 
 .navbar-nav li ul.sub-menu li a {
-  color: lighten($charcoal, 30%);
+  color: lighten($color_log_cabin_approx, 30%);
   padding: 5px 0;
   font-size: 17px;
   display: block;
@@ -102,7 +102,7 @@ ul.sub-menu {
 
 .navbar-nav li ul.sub-menu li .active {
   background: darken($white, 10%);
-  color: $sky;
+  color: $color_lochmara_approx;
   position: relative;
 }
 
@@ -110,7 +110,7 @@ ul.sub-menu {
   position: absolute;
   font-size: 56px;
   top: -13px;
-  color: $blue;
+  color: $color_endeavour_80_approx;
 }
 
 .navbar-nav li ul.sub-menu li .active .fa-angle-right {
@@ -124,7 +124,7 @@ ul.sub-menu {
 .navbar-nav li ul.sub-menu li a:hover,
 .navbar-nav li ul.sub-menu li a:focus {
   background: darken($white, 10%);
-  color: $sky;
+  color: $color_lochmara_approx;
 }
 
 @media only screen and (min-width: 768px) {
@@ -143,7 +143,7 @@ ul.sub-menu {
     box-shadow: none;
     display: none;
     z-index: 999;
-    border: 1px solid $blue;
+    border: 1px solid $color_endeavour_80_approx;
   }
   .navbar-nav li ul.sub-menu li a {
     padding-left: 20px;
@@ -162,16 +162,16 @@ ul.sub-menu {
 @media only screen and (max-width: 768px) {
   .navbar-inverse .navbar-toggle,
   .navbar-inverse .navbar-toggle:focus {
-    border-color: $blue;
+    border-color: $color_endeavour_80_approx;
     margin-top: 15px;
     margin-right: 5px;
     outline: none;
   }
   .navbar-header .navbar-toggle .icon-bar {
-    background-color: $blue;
+    background-color: $color_endeavour_80_approx;
   }
   .navbar-inverse .navbar-toggle:hover {
-    background: $blue;
+    background: $color_endeavour_80_approx;
   }
   .navbar-inverse .navbar-toggle:hover .icon-bar {
     background: $white;
